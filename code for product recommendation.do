@@ -37,6 +37,26 @@ predict diarrhea_p
 regress sore headache
 predict sore_p
 
+R
+# load the libraries
+library(caret)
+library(klaR)
+# define an 80%/20% train/test split of the dataset
+split=0.80
+trainIndex <- createDataPartition(symptomsonly$backache, p=split, list=FALSE)
+data_train <- symptomsonly[ trainIndex,]
+data_test <- symptonsonly[-trainIndex,]
+# train a naive bayes model
+model<- lm(backache~cramp+mood)
+# make predictions
+x_test <- data_test[,1:4]
+y_test <- data_test[,5]
+predictions <- predict(model, x_test)
+# summarize results
+confusionMatrix(predictions$class, y_test)
+] 
+
+
 
 
 
