@@ -1,5 +1,5 @@
 Stata Codes for Product Recommendation
-*****Principal Component Analysis Clusters
+*****After Principal Component Analysis Clusters (code done in the other file)
 g product_recommend="Berries (Mood relief) and Heat Pack(Cramp relief)" if backache>0
 *cramp (0.64) & mood(0.67) in backache
 replace product_recommend="Heat Pack (Cramp and Sore relief)" if cramp>0
@@ -19,3 +19,24 @@ replace product_recommend="Heat Pack and Painkiller" if sore>0
 replace product_recommend="Aloe Vera gel" if acne>0
 replace product_recommend="Ginger tea" if bloating>0
 replace product_recommend="Pain-relieving" if headache>0
+
+
+*****regression analysis to obtain coefficients*****
+regress backache cramp mood 
+predict backache_p
+regress cramp sore
+predict cramp_p
+regress diarrhea bloating
+predict diarrhea_p
+regress dizzy backache
+predict dizzy_p
+regress mood sore
+predict mood_p
+regress diarrhea nausea
+predict diarrhea_p
+regress sore headache
+predict sore_p
+
+
+
+
