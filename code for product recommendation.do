@@ -1,4 +1,4 @@
-
+Stata Codes for Product Recommendation
 *****Principal Component Analysis Clusters
 g product_recommend="Berries (Mood relief) and Heat Pack(Cramp relief)" if backache>0
 *cramp (0.64) & mood(0.67%) in backache
